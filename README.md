@@ -1,24 +1,15 @@
-# bitcoin_Vue
+# Bitcoin - Vue.js
 
-## Project setup
-```
-npm install
-```
+Ejemplo de aplicacion SPA realizada en vue.js, Vue Material y consumiendo la API Rest CoinDesk de BitCoin.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Instalar Dependencias
+- Instalar `npm install`
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Iniciar proyecto
+Ejecutar en terminal el comando `npm run serve` e introducir en el navegador `http://localhost:8080/`.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Generar proyecto - Produccionv
+Ejecutar en terminal el comando `npm run build` y comprobar que se ha generado el directorio `/build`. 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Ayuda
+Ver [Configuration Reference](https://cli.vuejs.org/config/).
