@@ -1,4 +1,4 @@
-# bitcoin_vue
+# bitcoin_Vue
 
 ## Project setup
 ```
