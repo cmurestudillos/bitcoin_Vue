@@ -18,11 +18,9 @@
 </template>
 
 <script>
-import { BNavbar } from 'bootstrap-vue';
 export default {
     name: 'NavbarComponent',
     components:{
-        BNavbar
     }
 }
 </script>
