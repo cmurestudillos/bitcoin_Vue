@@ -1,29 +1,51 @@
 <!-- Vista HTML -->
 <template>
   <div>
-    <md-tabs md-sync-route>
-      <md-tab id="tab-home" md-label="Home" to="/components/tabs" exact></md-tab>
-      <md-tab id="tab-pages" md-label="Pages" to="/components/tabs/pages">
-        <md-list>
-          <md-list-item to="/components/tabs/pages/1">Go to Subpage 1</md-list-item>
-          <md-list-item to="/components/tabs/pages/2">Go to Subpage 2</md-list-item>
-        </md-list>
-      </md-tab>
-      <md-tab id="tab-posts" md-label="Posts" to="/components/tabs/posts"></md-tab>
-      <md-tab id="tab-favorites" md-label="Favorites" to="/components/tabs/favorites"></md-tab>
-      <md-tab id="tab-disabled" md-label="Disabled" md-disabled></md-tab>
-    </md-tabs>
-    <h2>Mirror Subpage</h2>
-    <md-tabs md-sync-route>
-      <md-tab id="tab-pages-1" md-label="Pages 1" to="/components/tabs/pages/1">Subpage 1</md-tab>
-      <md-tab id="tab-pages-2" md-label="Pages 2" to="/components/tabs/pages/2">Subpage 2</md-tab>
+    <md-tabs class="md-transparent" md-alignment="fixed">
+      <md-tab id="tab-home" :md-label="modenaEur.description"></md-tab>
+      <md-tab id="tab-pages" md-label="Pages"></md-tab>
+      <md-tab id="tab-posts" md-label="Posts"></md-tab>
     </md-tabs>
   </div>
 </template>
 
 <!-- Funcionalidad JS -->
 <script>
+// Peticiones Http
+import axios from 'axios';
+// EndPoint
+import dataEur from '../../api/eur.js';
+
 export default {
-    name: 'HomeComponent'
+    name: 'HomeComponent',
+    mounted(){
+
+        // Llamamos al metodo
+        this.getEurCurerency();
+    },
+    data(){
+        return {
+            api: dataEur.endpoint,
+            modenaEur: [],
+        }
+    },  
+    methods: {
+        //-------------------------------------------------------//
+        // Metodo para obtener datos en Euros                    //
+        //-------------------------------------------------------//
+        getEurCurerency(){
+            // Log de seguimiento
+            console.log('HomeComponent.vue - Metodo getEurCurerency');
+
+            axios.get(this.api)
+                .then( res => {
+                    if(res.data){
+                    this.modenaEur = res.data['bpi'].EUR;
+                    console.log(this.modenaEur)
+                    }
+                });
+            },
+    }        
 }
+
 </script>
