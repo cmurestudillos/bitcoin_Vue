@@ -2,7 +2,18 @@
 <template>
   <div>
     <md-tabs class="md-transparent" md-alignment="fixed">
-      <md-tab id="tab-home" :md-label="modenaEur.description"></md-tab>
+      <md-tab id="tab-home" :md-label="modenaEur.description">
+        <md-card md-with-hover>
+            <md-ripple>
+                <md-card-header>
+                    <img src="../../assets/img/euro.png" width="150" height="150" :alt="modenaEur.description" :title="modenaEur.description">
+                </md-card-header>
+                <md-card-content>
+                    <md-chip class="md-success">Valor: </md-chip>{{modenaEur.rate}}
+                </md-card-content>
+            </md-ripple>
+        </md-card>          
+      </md-tab>
       <md-tab id="tab-pages" :md-label="modenaUsd.description"></md-tab>
       <md-tab id="tab-posts" :md-label="modenaGbp.description"></md-tab>
     </md-tabs>
@@ -68,7 +79,6 @@ export default {
                 .then( res => {
                     if(res.data){
                     this.modenaUsd = res.data['bpi'].USD;
-                    console.log(this.modenaUsd)
                 }
             });
         },
@@ -83,10 +93,9 @@ export default {
                 .then( res => {
                     if(res.data){
                     this.modenaGbp = res.data['bpi'].GBP;
-                    console.log(this.modenaGbp)
                 }
             });
-        }                       
+        },                       
     }        
 }
 
