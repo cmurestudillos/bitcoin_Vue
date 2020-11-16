@@ -19,3 +19,9 @@
 .content{
     padding: 30px !important;
 }
+
+.md-tabs.md-theme-default .md-tabs-navigation .md-button.md-active {
+    color: #09a330 !important;
+    color: 
+        var(--md-theme-default-primary-on-background, #09a330);
+}
