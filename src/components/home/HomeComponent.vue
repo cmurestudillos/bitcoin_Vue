@@ -2,20 +2,42 @@
 <template>
   <div>
     <md-tabs class="md-transparent" md-alignment="fixed">
-      <md-tab id="tab-home" :md-label="modenaEur.description">
+      <md-tab id="tab-euro" :md-label="modenaEur.code">
         <md-card md-with-hover>
             <md-ripple>
                 <md-card-header>
                     <img src="../../assets/img/euro.png" width="150" height="150" :alt="modenaEur.description" :title="modenaEur.description">
                 </md-card-header>
-                <md-card-content>
-                    <md-chip class="md-success">Valor: </md-chip>{{modenaEur.rate}}
+                <md-card-content class="content">
+                    <md-chip class="bg-success">Valor </md-chip>{{modenaEur.rate}}
                 </md-card-content>
             </md-ripple>
         </md-card>          
       </md-tab>
-      <md-tab id="tab-pages" :md-label="modenaUsd.description"></md-tab>
-      <md-tab id="tab-posts" :md-label="modenaGbp.description"></md-tab>
+      <md-tab id="tab-dollar" :md-label="modenaUsd.code">
+        <md-card md-with-hover>          
+            <md-ripple>
+                <md-card-header>
+                    <img src="../../assets/img/dollar.png" width="150" height="150" :alt="modenaUsd.description" :title="modenaUsd.description">
+                </md-card-header>
+                <md-card-content class="content">
+                    <md-chip class="bg-success">Valor </md-chip>{{modenaUsd.rate}}
+                </md-card-content>
+            </md-ripple>
+        </md-card>
+      </md-tab>
+      <md-tab id="tab-libra" :md-label="modenaGbp.code">
+         <md-card md-with-hover>          
+            <md-ripple>
+                <md-card-header>
+                    <img src="../../assets/img/libra.png" width="150" height="150" :alt="modenaUsd.modenaGbp" :title="modenaUsd.modenaGbp">
+                </md-card-header>
+                <md-card-content class="content">
+                    <md-chip class="bg-success">Valor </md-chip>{{modenaGbp.rate}}
+                </md-card-content>
+            </md-ripple>
+        </md-card>         
+      </md-tab>
     </md-tabs>
   </div>
 </template>
@@ -64,7 +86,7 @@ export default {
                 .then( res => {
                     if(res.data){
                     this.modenaEur = res.data['bpi'].EUR;
-                    console.log(this.modenaEur)
+                    //console.log(this.modenaEur)
                 }
             });
         },
@@ -79,6 +101,7 @@ export default {
                 .then( res => {
                     if(res.data){
                     this.modenaUsd = res.data['bpi'].USD;
+                    //console.log(this.modenaUsd)
                 }
             });
         },
@@ -93,6 +116,7 @@ export default {
                 .then( res => {
                     if(res.data){
                     this.modenaGbp = res.data['bpi'].GBP;
+                    //console.log(this.modenaGbp)
                 }
             });
         },                       
